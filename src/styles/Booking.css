@@ -1,0 +1,183 @@
+.booking-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.page-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: var(--color-text-secondary);
+}
+
+.cinema-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.cinema-card {
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cinema-card:hover {
+    transform: translateX(5px);
+    border-color: var(--color-accent-primary);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.cinema-info h3 {
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.cinema-location {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cinema-facilities {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.facility-badge {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-accent-primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+}
+
+.show-selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.date-picker {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.date-card {
+    min-width: 80px;
+    padding: 1rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.date-card.selected {
+    background: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
+    color: white;
+}
+
+.date-card .day {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.date-card .date {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.time-slot {
+    padding: 0.75rem;
+    background: var(--color-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.time-slot:hover {
+    border-color: var(--color-accent-secondary);
+}
+
+.time-slot.selected {
+    background: var(--color-accent-secondary);
+    border-color: var(--color-accent-secondary);
+    color: var(--color-bg-primary);
+    font-weight: 600;
+}
+
+.booking-summary {
+    background: var(--color-bg-secondary);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    box-shadow: var(--shadow-neon);
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--color-success);
+    margin-bottom: 1rem;
+}
+
+.ticket-details {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.5rem;
+}
+
+.ticket-row:last-child {
+    border-bottom: none;
+}
+
+.ticket-label {
+    color: var(--color-text-secondary);
+}
+
+.ticket-value {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
