@@ -44,9 +44,34 @@ const Profile = () => {
                 </div>
             </motion.div>
 
-            <h2 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <FaHistory style={{ color: '#e50914' }} /> Booking History
-            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+                <h2 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: 0 }}>
+                    <FaHistory style={{ color: '#e50914' }} /> Booking History
+                </h2>
+                {bookings.length > 0 && (
+                    <button
+                        onClick={() => {
+                            if (window.confirm('Are you sure you want to clear your booking history?')) {
+                                const allBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+                                const remaining = allBookings.filter(b => b.userId !== user?.email);
+                                localStorage.setItem('bookings', JSON.stringify(remaining));
+                                setBookings([]);
+                            }
+                        }}
+                        style={{
+                            background: '#333',
+                            color: 'white',
+                            border: '1px solid #555',
+                            padding: '0.5rem 1rem',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                            fontSize: '0.9rem'
+                        }}
+                    >
+                        Clear History
+                    </button>
+                )}
+            </div>
 
             {bookings.length > 0 ? (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>

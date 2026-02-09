@@ -56,13 +56,28 @@ const Navbar = () => {
                     MOVIEAPP
                 </Link>
 
-                {/* Desktop Menu - could be hidden on smaller screens in a real app */}
-                <div style={{ display: 'flex', gap: '1.2rem', fontSize: '0.9rem', color: '#e5e5e5' }}>
+                {/* Desktop Menu - modified to be scrollable on mobile */}
+                <div
+                    className="nav-links"
+                    style={{
+                        display: 'flex',
+                        gap: '1.2rem',
+                        fontSize: '0.9rem',
+                        color: '#e5e5e5',
+                        overflowX: 'auto',
+                        whiteSpace: 'nowrap',
+                        maxWidth: '100%',
+                        paddingBottom: '5px', // hide scrollbar visual slightly or allow space
+                        scrollbarWidth: 'none' // firefox
+                    }}>
                     <Link to="/dashboard" style={{ color: 'white', fontWeight: 'bold', textDecoration: 'none' }}>Home</Link>
                     <span style={{ cursor: 'pointer' }}>TV Shows</span>
                     <span style={{ cursor: 'pointer' }}>Movies</span>
                     <Link to="/indian-movies" style={{ color: '#e5e5e5', textDecoration: 'none', cursor: 'pointer' }}>Indian Movies</Link>
                     <span style={{ cursor: 'pointer' }}>My List</span>
+                    <style>{`
+                        .nav-links::-webkit-scrollbar { display: none; }
+                    `}</style>
                 </div>
             </div>
 
