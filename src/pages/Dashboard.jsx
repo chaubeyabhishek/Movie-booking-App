@@ -1,73 +1,108 @@
 import { useState, useMemo } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { movies, cities } from '../utils/movies';
-import MovieCard from '../components/MovieCard';
+import { movies } from '../utils/movies';
+import MovieRow from '../components/MovieRow';
 import '../styles/Dashboard.css';
-import { FaSearch } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 const Dashboard = () => {
-    const { user, logout } = useAuth();
-    const [searchTerm, setSearchTerm] = useState('');
-    const [selectedCity, setSelectedCity] = useState('');
+    // Featured movie for the Hero section
+    const featuredMovie = movies.find(m => m.title === "Dune: Part Two") || movies[0];
 
-    const filteredMovies = useMemo(() => {
-        return movies.filter(movie => {
-            const matchesSearch = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-            const matchesCity = selectedCity ? movie.cities.includes(selectedCity) : true;
-            return matchesSearch && matchesCity;
-        });
-    }, [searchTerm, selectedCity]);
+    // Categorize movies
+    const indianMovies = movies.filter(m =>
+        m.language === "Hindi" || m.language === "Telugu" || m.language === "Kannada" || m.language === "Tamil"
+    );
+
+    // Explicitly exclude Indian movies from "Trending Now" if you want separation, 
+    // or keep them. Here I'll just show all non-Indian as "Trending" for variety, or just mix.
+    // Let's make "Trending" be everything.
+    const trendingMovies = movies;
+
+    const actionMovies = movies.filter(m => m.genre.includes("Action"));
+    const sciFiMovies = movies.filter(m => m.genre.includes("Sci-Fi"));
 
     return (
-        <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-            <motion.div
-                className="dashboard-header"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
+        <div className="dashboard-container" style={{ backgroundColor: '#141414', minHeight: '100vh', paddingBottom: '2rem' }}>
+
+            {/* Hero Section */}
+            <div
+                className="hero-section"
+                style={{
+                    height: '80vh',
+                    position: 'relative',
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(19, 19, 31,1)), url(${featuredMovie.poster})`,
+                    // Note: Ideally use a landscape backdrop image, but poster works for demo
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center top',
+                    display: 'flex',
+                    alignItems: 'center'
+                }}
             >
-                <div>
-                    <h2 className="text-gradient" style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>Now Showing</h2>
-                    <p style={{ color: 'var(--color-text-secondary)' }}>
-                        Welcome back, <span style={{ color: 'white', fontWeight: 600 }}>{user?.name}</span>
+                <div
+                    className="hero-content"
+                    style={{
+                        paddingLeft: '3rem',
+                        maxWidth: '600px',
+                        paddingTop: '10rem'
+                    }}
+                >
+                    <h1 style={{
+                        fontSize: '4rem',
+                        fontWeight: '800',
+                        marginBottom: '1rem',
+                        textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+                    }}>
+                        {featuredMovie.title}
+                    </h1>
+                    <p style={{
+                        fontSize: '1.2rem',
+                        marginBottom: '2rem',
+                        textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+                    }}>
+                        {featuredMovie.year} | {featuredMovie.rating} Rating | {featuredMovie.genre.join(', ')}
                     </p>
-                </div>
-
-                <div className="dashboard-controls">
-                    <div className="search-bar">
-                        <FaSearch className="search-icon" />
-                        <input
-                            type="text"
-                            className="search-input"
-                            placeholder="Search by movie name..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
+                    <div style={{ display: 'flex', gap: '1rem' }}>
+                        <button style={{
+                            padding: '0.8rem 2rem',
+                            fontSize: '1.1rem',
+                            fontWeight: 'bold',
+                            borderRadius: '4px',
+                            border: 'none',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            backgroundColor: 'white',
+                            color: 'black'
+                        }}>
+                            <FaPlay /> Play
+                        </button>
+                        <button style={{
+                            padding: '0.8rem 2rem',
+                            fontSize: '1.1rem',
+                            fontWeight: 'bold',
+                            borderRadius: '4px',
+                            border: 'none',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            backgroundColor: 'rgba(109, 109, 110, 0.7)',
+                            color: 'white'
+                        }}>
+                            <FaInfoCircle /> More Info
+                        </button>
                     </div>
-
-                    <select
-                        className="city-filter"
-                        value={selectedCity}
-                        onChange={(e) => setSelectedCity(e.target.value)}
-                    >
-                        <option value="">All Cities</option>
-                        {cities.map(city => (
-                            <option key={city} value={city}>{city}</option>
-                        ))}
-                    </select>
                 </div>
-            </motion.div>
+            </div>
 
-            <div className="movies-grid">
-                {filteredMovies.length > 0 ? (
-                    filteredMovies.map(movie => (
-                        <MovieCard key={movie.id} movie={movie} />
-                    ))
-                ) : (
-                    <div className="no-results">
-                        <p>No movies found matching your criteria.</p>
-                    </div>
-                )}
+            {/* Movie Rows */}
+            <div style={{ marginTop: '-100px', position: 'relative', zIndex: 10 }}>
+                <MovieRow title="Trending Now" movies={trendingMovies} />
+                <MovieRow title="Indian Blockbusters" movies={indianMovies} />
+                <MovieRow title="Action Thrillers" movies={actionMovies} />
+                <MovieRow title="Sci-Fi Adventures" movies={sciFiMovies} />
             </div>
         </div>
     );

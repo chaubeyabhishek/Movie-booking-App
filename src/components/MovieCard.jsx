@@ -1,20 +1,33 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react'; // Added useState import
 import '../styles/Dashboard.css';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, style, className }) => {
     const navigate = useNavigate();
+    const [imageError, setImageError] = useState(false); // Added imageError state
+
+    if (imageError) return null; // Added conditional return to hide component on error
 
     return (
         <motion.div
-            className="movie-card"
+            className={`movie-card ${className || ''}`}
+            style={style}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => navigate(`/cinema/${movie.id}`)}
         >
             <div className="movie-badge">{movie.language}</div>
-            <img src={movie.poster} alt={movie.title} className="movie-poster" loading="lazy" />
+            <div className="movie-poster-wrapper">
+                <img
+                    src={movie.poster}
+                    alt={movie.title}
+                    className="movie-poster"
+                    loading="lazy"
+                    onError={() => setImageError(true)} // Modified onError handler
+                />
+            </div>
             <div className="movie-info">
                 <h3 className="movie-title">{movie.title}</h3>
                 <div className="movie-meta">

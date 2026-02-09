@@ -37,9 +37,42 @@ export const cinemas = [
     {
         id: 6,
         name: "Alamo Drafthouse",
-        location: "Mission District",
-        city: "San Francisco",
         facilities: ["Dine-in", "35mm"]
+    },
+    {
+        id: 7,
+        name: "PVR Icon",
+        location: "Phoenix Palladium, Mumbai",
+        city: "Mumbai",
+        facilities: ["Gold Class", "4DX", "IMAX"]
+    },
+    {
+        id: 8,
+        name: "PVR Priya",
+        location: "Vasant Vihar, Delhi",
+        city: "Delhi",
+        facilities: ["IMAX", "Recliner"]
+    },
+    {
+        id: 9,
+        name: "PVR Koramangala",
+        location: "The Forum Mall, Bangalore",
+        city: "Bangalore",
+        facilities: ["Gold Class", "Dolby 7.1"]
+    },
+    {
+        id: 10,
+        name: "Prasads Multiplex",
+        location: "Necklace Road, Hyderabad",
+        city: "Hyderabad",
+        facilities: ["Large Screen", "Dolby Atmos"]
+    },
+    {
+        id: 11,
+        name: "Sathyam Cinemas",
+        location: "Royapettah, Chennai",
+        city: "Chennai",
+        facilities: ["Dolby Atmos", "RGB Laser"]
     }
 ];
 

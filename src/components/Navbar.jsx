@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { FaUserCircle, FaSignOutAlt } from 'react-icons/fa';
 import '../styles/global.css';
@@ -6,6 +7,20 @@ import '../styles/global.css';
 const Navbar = () => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     const handleLogout = () => {
         logout();
@@ -16,31 +31,101 @@ const Navbar = () => {
 
     return (
         <nav style={{
-            background: 'rgba(19, 19, 31, 0.8)',
-            backdropFilter: 'blur(10px)',
-            borderBottom: '1px solid rgba(255,255,255,0.05)',
-            padding: '1rem 0',
-            position: 'sticky',
+            background: isScrolled ? 'rgb(10, 10, 10)' : 'transparent',
+            backgroundImage: isScrolled ? 'none' : 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0))',
+            padding: '0.8rem 2rem', // Increased side padding
+            position: 'fixed', // Fixed instead of sticky for overlay effect
             top: 0,
-            zIndex: 100
+            left: 0,
+            right: 0,
+            zIndex: 1000,
+            transition: 'background-color 0.3s ease-in-out',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            height: '70px'
         }}>
-            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Link to="/dashboard" style={{ fontSize: '1.5rem', fontWeight: 'bold' }} className="text-gradient">
-                    MovieApp
+            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                <Link to="/dashboard" style={{
+                    fontSize: '1.8rem',
+                    fontWeight: 'bold',
+                    color: '#e50914', // Netflix Red
+                    textDecoration: 'none',
+                    marginRight: '1rem'
+                }}>
+                    MOVIEAPP
                 </Link>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-text-secondary)' }}>
-                        <FaUserCircle size={20} />
-                        <span>{user.name}</span>
+                {/* Desktop Menu - could be hidden on smaller screens in a real app */}
+                <div style={{ display: 'flex', gap: '1.2rem', fontSize: '0.9rem', color: '#e5e5e5' }}>
+                    <Link to="/dashboard" style={{ color: 'white', fontWeight: 'bold', textDecoration: 'none' }}>Home</Link>
+                    <span style={{ cursor: 'pointer' }}>TV Shows</span>
+                    <span style={{ cursor: 'pointer' }}>Movies</span>
+                    <Link to="/indian-movies" style={{ color: '#e5e5e5', textDecoration: 'none', cursor: 'pointer' }}>Indian Movies</Link>
+                    <span style={{ cursor: 'pointer' }}>My List</span>
+                </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', position: 'relative' }}>
+                <div
+                    className="user-menu"
+                    style={{ position: 'relative', cursor: 'pointer' }}
+                    onMouseEnter={() => document.getElementById('user-dropdown').style.display = 'block'}
+                    onMouseLeave={() => document.getElementById('user-dropdown').style.display = 'none'}
+                >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'white', padding: '0.5rem' }}>
+                        <FaUserCircle size={24} />
+                        <span style={{ fontSize: '0.9rem' }}>{user.name}</span>
                     </div>
-                    <button
-                        onClick={handleLogout}
-                        className="btn btn-outline"
-                        style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}
+
+                    <div
+                        id="user-dropdown"
+                        style={{
+                            display: 'none',
+                            position: 'absolute',
+                            top: '100%',
+                            right: 0,
+                            background: 'rgba(0, 0, 0, 0.9)',
+                            border: '1px solid #333',
+                            borderRadius: '4px',
+                            minWidth: '150px',
+                            padding: '0.5rem 0',
+                            zIndex: 1001
+                        }}
                     >
-                        <FaSignOutAlt />
-                    </button>
+                        <Link
+                            to="/profile"
+                            style={{
+                                display: 'block',
+                                padding: '0.8rem 1rem',
+                                color: '#fff',
+                                textDecoration: 'none',
+                                fontSize: '0.9rem',
+                                transition: 'background 0.2s'
+                            }}
+                            onMouseEnter={(e) => e.target.style.background = '#333'}
+                            onMouseLeave={(e) => e.target.style.background = 'transparent'}
+                        >
+                            Profile
+                        </Link>
+                        <div
+                            onClick={handleLogout}
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                padding: '0.8rem 1rem',
+                                color: '#e50914',
+                                cursor: 'pointer',
+                                fontSize: '0.9rem',
+                                borderTop: '1px solid #333'
+                            }}
+                            onMouseEnter={(e) => e.target.style.background = '#333'}
+                            onMouseLeave={(e) => e.target.style.background = 'transparent'}
+                        >
+                            <FaSignOutAlt /> Sign Out
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>

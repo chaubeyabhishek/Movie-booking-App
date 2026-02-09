@@ -78,7 +78,110 @@ export const movies = [
         language: "English",
         genre: ["Drama", "Sci-Fi"],
         cities: ["San Francisco", "Austin", "Seattle"]
+    },
+    {
+        id: 9,
+        title: "RRR",
+        poster: "https://image.tmdb.org/t/p/w500/nEufeZlyAOLqO2brrs0yeF1lgXO.jpg",
+        year: 2022,
+        rating: 8.8,
+        language: "Telugu",
+        genre: ["Action", "Drama"],
+        cities: ["Mumbai", "Delhi", "Bangalore", "Hyderabad"]
+    },
+    {
+        id: 10,
+        title: "KGF: Chapter 2",
+        poster: "https://image.tmdb.org/t/p/w500/kh4fcANnQ8V9MhE1bF7m91w1y9D.jpg",
+        year: 2022,
+        rating: 8.4,
+        language: "Kannada",
+        genre: ["Action", "Thriller"],
+        cities: ["Mumbai", "Bangalore", "Chennai", "Delhi"]
+    },
+    {
+        id: 11,
+        title: "Dangal",
+        poster: "https://upload.wikimedia.org/wikipedia/en/9/99/Dangal_Poster.jpg",
+        year: 2016,
+        rating: 8.4,
+        language: "Hindi",
+        genre: ["Biography", "Sport"],
+        cities: ["Mumbai", "Delhi", "Chandigarh"]
+    },
+    {
+        id: 12,
+        title: "Baahubali 2: The Conclusion",
+        poster: "https://upload.wikimedia.org/wikipedia/en/f/f9/Baahubali_the_Conclusion.jpg",
+        year: 2017,
+        rating: 8.2,
+        language: "Telugu",
+        genre: ["Action", "Fantasy"],
+        cities: ["Hyderabad", "Mumbai", "Chennai", "Bangalore"]
+    },
+    {
+        id: 13,
+        title: "3 Idiots",
+        poster: "https://upload.wikimedia.org/wikipedia/en/d/df/3_idiots_poster.jpg",
+        year: 2009,
+        rating: 8.4,
+        language: "Hindi",
+        genre: ["Comedy", "Drama"],
+        cities: ["Mumbai", "Delhi", "Pune", "Bangalore"]
+    },
+    {
+        id: 14,
+        title: "Lagaan",
+        poster: "https://upload.wikimedia.org/wikipedia/en/b/b6/Lagaan.jpg",
+        year: 2001,
+        rating: 8.1,
+        language: "Hindi",
+        genre: ["Drama", "Sport", "Musical"],
+        cities: ["Mumbai", "Delhi", "Kolkata"]
+    },
+    {
+        id: 15,
+        title: "PK",
+        poster: "https://upload.wikimedia.org/wikipedia/en/c/c3/PK_poster.jpg",
+        year: 2014,
+        rating: 8.1,
+        language: "Hindi",
+        genre: ["Comedy", "Drama", "Sci-Fi"],
+        cities: ["Mumbai", "Delhi", "Bangalore"]
+    },
+    {
+        id: 16,
+        title: "Sholay",
+        poster: "https://upload.wikimedia.org/wikipedia/en/5/52/Sholay-top_cast.jpg",
+        year: 1975,
+        rating: 8.1,
+        language: "Hindi",
+        genre: ["Action", "Adventure"],
+        cities: ["Mumbai", "Delhi"]
+    },
+    {
+        id: 17,
+        title: "Dilwale Dulhania Le Jayenge",
+        poster: "https://upload.wikimedia.org/wikipedia/en/8/80/Dilwale_Dulhania_Le_Jayenge_poster.jpg",
+        year: 1995,
+        rating: 8.0,
+        language: "Hindi",
+        genre: ["Drama", "Romance"],
+        cities: ["Mumbai", "Delhi", "Punjab"]
+    },
+    {
+        id: 18,
+        title: "Kantara",
+        poster: "https://upload.wikimedia.org/wikipedia/en/8/84/Kantara_poster.jpeg",
+        year: 2022,
+        rating: 8.3,
+        language: "Kannada",
+        genre: ["Action", "Thriller", "Fantasy"],
+        cities: ["Bangalore", "Mangalore", "Mumbai"]
     }
 ];
 
-export const cities = ["New York", "Los Angeles", "Chicago", "Houston", "San Francisco", "Miami", "Seattle", "Austin"];
+export const cities = [
+    "New York", "Los Angeles", "Chicago", "Houston", "San Francisco", "Miami", "Seattle", "Austin",
+    "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Chennai", "Pune", "Chandigarh", "Kolkata", "Ahmedabad"
+];

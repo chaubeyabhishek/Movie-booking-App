@@ -8,6 +8,8 @@ import BookingConfirmation from './pages/BookingConfirmation'
 import ProtectedRoute from './components/ProtectedRoute'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import IndianMovies from './pages/IndianMovies'
+import Profile from './pages/Profile'
 
 function App() {
   return (
@@ -45,6 +47,22 @@ function App() {
           element={
             <ProtectedRoute>
               <BookingConfirmation />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/indian-movies"
+          element={
+            <ProtectedRoute>
+              <IndianMovies />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />
