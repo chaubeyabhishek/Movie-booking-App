@@ -11,13 +11,15 @@ const MovieRow = ({ title, movies }) => {
 
     return (
         <div style={{ marginBottom: '3rem' }}>
-            <h2 style={{
-                fontSize: '1.5rem',
-                fontWeight: '600',
-                marginBottom: '1rem',
-                color: '#e5e5e5',
-                paddingLeft: '2rem' // Align with navbar padding
-            }}>
+            <h2
+                className="movie-row-header"
+                style={{
+                    fontSize: '1.5rem',
+                    fontWeight: '600',
+                    marginBottom: '1rem',
+                    color: '#e5e5e5',
+                    paddingLeft: '2rem' // Default, overridden by CSS on mobile
+                }}>
                 {title}
             </h2>
 
