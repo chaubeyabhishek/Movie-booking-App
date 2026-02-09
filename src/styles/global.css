@@ -131,3 +131,85 @@ textarea:focus {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent-primary);
 }
+
+/* Navbar Styles */
+.navbar-container {
+    padding: 0.8rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e50914;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.9rem;
+    color: #e5e5e5;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.5rem 1rem;
+        background: rgb(10, 10, 10) !important;
+        /* Always solid background on mobile for readability */
+    }
+
+    .navbar-left {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        gap: 1rem;
+    }
+
+    .navbar-right {
+        /* Move user profile to be inline with logo on mobile */
+        /* Currently navbar-left contains logo AND nav-links. 
+           We need to restructure Navbar.jsx to separate Logo, Links, and Profile 
+           so we can rearrange them easily with CSS order or flex. 
+           
+           Better approach:
+           Navbar structure:
+           [Logo] [Profile]
+           [Links (full width)]
+        */
+    }
+}
