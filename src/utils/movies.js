@@ -185,3 +185,86 @@ export const cities = [
     "New York", "Los Angeles", "Chicago", "Houston", "San Francisco", "Miami", "Seattle", "Austin",
     "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Chennai", "Pune", "Chandigarh", "Kolkata", "Ahmedabad"
 ];
+
+export const tvShows = [
+    {
+        id: 101,
+        title: "Breaking Bad",
+        poster: "https://upload.wikimedia.org/wikipedia/en/9/9f/Breaking_Bad_season_five_poster.jpg",
+        year: 2008,
+        rating: 9.5,
+        language: "English",
+        genre: ["Crime", "Drama"],
+        cities: ["New York", "Los Angeles"]
+    },
+    {
+        id: 102,
+        title: "Stranger Things",
+        poster: "https://upload.wikimedia.org/wikipedia/en/7/78/Stranger_Things_season_4.jpg",
+        year: 2016,
+        rating: 8.7,
+        language: "English",
+        genre: ["Sci-Fi", "Horror"],
+        cities: ["New York", "Los Angeles"]
+    },
+    {
+        id: 103,
+        title: "Game of Thrones",
+        poster: "https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_S1_DVD.jpg",
+        year: 2011,
+        rating: 9.2,
+        language: "English",
+        genre: ["Fantasy", "Drama"],
+        cities: ["London", "New York"]
+    },
+    {
+        id: 104,
+        title: "Sacred Games",
+        poster: "https://upload.wikimedia.org/wikipedia/en/3/36/Sacred_Games_poster.jpg",
+        year: 2018,
+        rating: 8.5,
+        language: "Hindi",
+        genre: ["Crime", "Thriller"],
+        cities: ["Mumbai", "Delhi"]
+    },
+    {
+        id: 105,
+        title: "Mirzapur",
+        poster: "https://upload.wikimedia.org/wikipedia/en/3/3c/Mirzapur_season_1_poster.jpg",
+        year: 2018,
+        rating: 8.5,
+        language: "Hindi",
+        genre: ["Crime", "Action"],
+        cities: ["Mumbai", "Delhi"]
+    },
+    {
+        id: 106,
+        title: "The Family Man",
+        poster: "https://upload.wikimedia.org/wikipedia/en/1/1d/The_Family_Man.jpeg",
+        year: 2019,
+        rating: 8.7,
+        language: "Hindi",
+        genre: ["Action", "Comedy"],
+        cities: ["Mumbai", "Delhi"]
+    },
+    {
+        id: 107,
+        title: "Squid Game",
+        poster: "https://upload.wikimedia.org/wikipedia/en/d/dd/Squid_Game.jpg",
+        year: 2021,
+        rating: 8.0,
+        language: "Korean",
+        genre: ["Thriller", "Drama"],
+        cities: ["Seoul", "New York"]
+    },
+    {
+        id: 108,
+        title: "Money Heist",
+        poster: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Money_Heist_Part_5_Volume_2.jpg/250px-Money_Heist_Part_5_Volume_2.jpg",
+        year: 2017,
+        rating: 8.2,
+        language: "Spanish",
+        genre: ["Crime", "Thriller"],
+        cities: ["Madrid", "New York"]
+    }
+];

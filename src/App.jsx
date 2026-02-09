@@ -10,6 +10,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import IndianMovies from './pages/IndianMovies'
 import Profile from './pages/Profile'
+import TVShows from './pages/TVShows'
 
 function App() {
   return (
@@ -63,6 +64,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tv-shows"
+          element={
+            <ProtectedRoute>
+              <TVShows />
             </ProtectedRoute>
           }
         />
