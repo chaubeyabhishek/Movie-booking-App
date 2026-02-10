@@ -53,7 +53,7 @@ const Navbar = () => {
                     textDecoration: 'none',
                     marginRight: '1rem'
                 }}>
-                    MOVIEAPP
+                    BOOK-YOUR-MOVIES
                 </Link>
 
                 {user && (
