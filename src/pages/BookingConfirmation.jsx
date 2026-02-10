@@ -15,8 +15,7 @@ const BookingConfirmation = () => {
             const parsedBooking = JSON.parse(currentBooking);
             setBooking(parsedBooking);
 
-            // Save to permanent booking history
-            // In a real app, this would be an API call
+           
             const allBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
             allBookings.push({
                 ...parsedBooking,
@@ -26,9 +25,7 @@ const BookingConfirmation = () => {
             });
             localStorage.setItem('bookings', JSON.stringify(allBookings));
 
-            // Clear current booking after saving (optional, but good for cleanup)
-            // But we need it for display, so maybe clear on unmount or navigation
-            // localStorage.removeItem('currentBooking'); 
+           
         }
     }, [user]);
 

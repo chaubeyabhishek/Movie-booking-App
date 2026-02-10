@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
 const IndianMovies = () => {
 
-    // Filter for Indian movies based on language
     const indianMovies = useMemo(() => {
         return movies.filter(m =>
             ["Hindi", "Telugu", "Kannada", "Tamil", "Malayalam"].includes(m.language)

@@ -12,6 +12,7 @@ import IndianMovies from './pages/IndianMovies'
 import Profile from './pages/Profile'
 import TVShows from './pages/TVShows'
 
+
 function App() {
   return (
     <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>

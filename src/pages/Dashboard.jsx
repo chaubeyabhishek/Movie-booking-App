@@ -6,17 +6,15 @@ import '../styles/Dashboard.css';
 import { FaPlay, FaInfoCircle } from 'react-icons/fa';
 
 const Dashboard = () => {
-    // Featured movie for the Hero section
+
     const featuredMovie = movies.find(m => m.title === "Dune: Part Two") || movies[0];
 
-    // Categorize movies
+    
     const indianMovies = movies.filter(m =>
         m.language === "Hindi" || m.language === "Telugu" || m.language === "Kannada" || m.language === "Tamil"
     );
 
-    // Explicitly exclude Indian movies from "Trending Now" if you want separation, 
-    // or keep them. Here I'll just show all non-Indian as "Trending" for variety, or just mix.
-    // Let's make "Trending" be everything.
+    
     const trendingMovies = movies;
 
     const actionMovies = movies.filter(m => m.genre.includes("Action"));
@@ -32,7 +30,7 @@ const Dashboard = () => {
                     height: '80vh',
                     position: 'relative',
                     backgroundImage: `linear-gradient(rgba(0,0,0,0), rgba(19, 19, 31,1)), url(${featuredMovie.poster})`,
-                    // Note: Ideally use a landscape backdrop image, but poster works for demo
+                    
                     backgroundSize: 'cover',
                     backgroundPosition: 'center top',
                     display: 'flex',

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
 import { FaUserCircle, FaTicketAlt, FaHistory, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import '../styles/Dashboard.css'; // Re-use dashboard styles for dark theme
+import '../styles/Dashboard.css'; // 
 
 const Profile = () => {
     const { user } = useAuth();
@@ -10,10 +10,9 @@ const Profile = () => {
 
     useEffect(() => {
         const allBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-        // Filter bookings for current user if needed, or just show all for this demo
-        // Ideally filter by user.email or id
+       
         const userBookings = allBookings.filter(b => b.userId === user?.email);
-        setBookings(userBookings.reverse()); // Show newest first
+        setBookings(userBookings.reverse()); 
     }, [user]);
 
     if (!user) return <div className="container" style={{ paddingTop: '100px' }}>Loading...</div>;

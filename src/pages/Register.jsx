@@ -34,7 +34,7 @@ const Register = () => {
 
         const result = register(name, email, password);
         if (result.success) {
-            navigate('/dashboard');
+            navigate('/login');
         } else {
             setError(result.message);
         }

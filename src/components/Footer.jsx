@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="container">
                 <p>&copy; {new Date().getFullYear()} MovieApp. All rights reserved.</p>
                 <p style={{ fontSize: '0.8rem', marginTop: '0.5rem', opacity: 0.7 }}>
-                    Made with ReactJS & Love
+                    
                 </p>
             </div>
         </footer>

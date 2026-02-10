@@ -12,8 +12,6 @@ const CinemaList = () => {
 
     if (!movie) return <div className="container">Movie not found</div>;
 
-    // Filter cinemas that are in the movie's available cities
-    // For this dummy data, let's assume all cinemas in the list show the movie if the city matches
     const availableCinemas = cinemas.filter(cinema => movie.cities.includes(cinema.city));
 
     return (

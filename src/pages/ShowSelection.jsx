@@ -31,22 +31,19 @@ const ShowSelection = () => {
         return days;
     }, []);
 
-    // Generate dummy shows for the selected movie/cinema
-    // In a real app, this would fetch based on date too
+    
     const shows = useMemo(() => generateShows(movieId, cinemaId), [movieId, cinemaId]);
 
     const handleProceed = () => {
         if (selectedShow) {
-            // Pass booking details via state to confirmation page to avoid URL params clutter
-            // Or store in context/localstorage temporarily
+          
             const bookingDetails = {
                 movie,
                 cinema,
                 date: dates[selectedDate].fullDate,
                 show: selectedShow
             };
-            // For persistence across refresh on confirmation page, we might want to use localStorage or just location state
-            // Let's use localStorage for "currentBooking" to be safe against refresh
+            
             localStorage.setItem('currentBooking', JSON.stringify(bookingDetails));
             navigate('/booking/confirmation');
         }

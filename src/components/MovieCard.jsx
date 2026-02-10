@@ -5,10 +5,9 @@ import '../styles/Dashboard.css';
 
 const MovieCard = ({ movie, style, className }) => {
     const navigate = useNavigate();
-    const [imageError, setImageError] = useState(false); // Added imageError state
+    const [imageError, setImageError] = useState(false); 
 
-    if (imageError) return null; // Added conditional return to hide component on error
-
+    if (imageError) return null; 
     return (
         <motion.div
             className={`movie-card ${className || ''}`}
@@ -25,7 +24,7 @@ const MovieCard = ({ movie, style, className }) => {
                     alt={movie.title}
                     className="movie-poster"
                     loading="lazy"
-                    onError={() => setImageError(true)} // Modified onError handler
+                    onError={() => setImageError(true)} 
                 />
             </div>
             <div className="movie-info">
